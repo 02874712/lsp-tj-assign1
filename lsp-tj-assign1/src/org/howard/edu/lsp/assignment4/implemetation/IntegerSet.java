@@ -120,24 +120,25 @@ public int smallest() throws IntegerSetException{
  */
  	public List<Integer> union(IntegerSet intSetb) {
  		ArrayList<Integer> set2 = (ArrayList<Integer>) intSetb.set;
- 		for(int i = 0; i < set.size(); i++) {
- 			if(set.contains(set2.get(i)) == false) {
- 				set.add(set2.get(i));
+ 		ArrayList<Integer> tempSet = (ArrayList<Integer>) set;
+ 		for(int i = 0; i < set2.size(); i++) {
+ 			if(tempSet.contains(set2.get(i)) == false) {
+ 				tempSet.add(set2.get(i));
  				
  			}
  		}
- 		System.out.println(set.size());
- 		return set2;
+ 		return tempSet;
  	};
 
 // Set intersection
  	public List<Integer> intersect(IntegerSet intSetb) {
  		List<Integer> set2 = intSetb.set;
- 		List<Integer> union_set = set;
+ 		List<Integer> union_set = this.set;
  		int j = 0;
  		for(int i = 0; i < set.size(); i++) {
  			if (set2.contains(set.get(i)) == true){
- 				union_set.add(j, set.get(i));
+ 				union_set.add(set.get(i));
+ 				j++;
  			}	
  		}
  		return union_set;
@@ -145,11 +146,13 @@ public int smallest() throws IntegerSetException{
 
 // Set difference, i.e., s1 –s2
  	public List<Integer> diff(IntegerSet intSetb) {
- 		List<Integer> set2 = intSetb.set;
- 		List<Integer> diff_set = set; 
+ 		ArrayList<Integer> set2 = (ArrayList<Integer>) intSetb.set;
+ 		ArrayList<Integer> diff_set = new ArrayList<Integer>(); 
+ 		//System.out.println(set2.get(i));
  		for(int i = 0; i < set.size(); i++) {
- 			if(set2.contains(set.get(i)) == true) {
- 				diff_set.remove(set.get(i));
+ 			if(set.contains(set2.get(i)) == false) {
+ 				System.out.println(set2.get(i) + " " + set.get(i));
+ 				diff_set.add(set2.get(i));
  			}
  		}
  		return diff_set;
@@ -157,12 +160,31 @@ public int smallest() throws IntegerSetException{
  	
 
 // Returns true if the set is empty, false otherwise
+ 	/**
+ 	 * 
+ 	 * @return false if set is empty
+ 	 */
  	boolean isEmpty() {
  		if(set.size() == 0) {return true;}
  		return false;
  	}; 
 
 // Return String representation of your set
- 	//public String toString() {…};	// return String representation of your set
+ 	/**
+ 	 * Takes in the set and returns it in string format
+ 	 * @param intsetb - given set taken in
+ 	 * @return string - string of the set
+ 	 */
+ 	public String toString(IntegerSet intsetb) {
+ 		List<Integer> set2 = intsetb.set;
+ 		String stringSet = "[ ";
+ 		for(int i = 0; i < intsetb.length(); i++) {
+ 			int num = set2.get(i);
+ 			stringSet += num + " ";
+ 			}
+ 		stringSet += "]";
+ 		return stringSet;
+
+ 		}; // return String representation of your set
 }
 

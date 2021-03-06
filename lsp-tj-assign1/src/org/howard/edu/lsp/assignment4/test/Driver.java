@@ -43,6 +43,13 @@ public class Driver {
 		intset3.add(5);
 		
 		/**
+		 * Displays all the sets
+		 */
+		System.out.println("Set 1:"+ intset1.toString(intset1));
+		System.out.println("Set 2:"+ intset2.toString(intset2));
+		System.out.println("Set 3:"+ intset3.toString(intset3) + '\n');
+		
+		/**
 		 * Displays the set length of all sets
 		 */
 		System.out.println("Set 1 length: "+ intset1.length());
@@ -63,6 +70,11 @@ public class Driver {
 		
 		System.out.println("Removing value from set 3...\n");
 		intset3.remove(5);
+		
+		System.out.println("Set 1:"+ intset1.toString(intset1));
+		System.out.println("Set 2:"+ intset2.toString(intset2));
+		System.out.println("Set 3:"+ intset3.toString(intset3) + '\n');
+		
 		System.out.println("Set 3 length: "+ intset3.length() );
 		System.out.println("Set 3 contains the number 5: "+ intset3.contains(5));
 		System.out.println("Set 1 equals Set 3: "+ intset1.equals(intset3));
@@ -72,14 +84,29 @@ public class Driver {
 		 * Finding the largest value in set 2
 		 * Set 4 is empty, so it should throw an exception
 		 */
-		System.out.println("Finding largest value in set 2...\n");
-		System.out.println("The largest number in set 2: "+ intset2.largest());
+		System.out.println("\nFinding largest value in set 2...");
+		System.out.println("The largest number in set 2: "+ intset2.largest()+ '\n');
+		System.out.println("Set 4 length: "+ intset4.length());
 		System.out.println("Finding smallest value in set 4...\n");
+		
 		//System.out.println("The smallest number in set 4:"+ intset4.smallest());
 
-		//System.out.println("Union between Set 1 and 2: ");
-		//intset1.union(intset2);
+		System.out.println("Union between Set 1 and 2: ");
+		System.out.println(intset1.union(intset2));
+		
+		System.out.println("\nAdding values to Set 4...\n");
+		intset4.add(10);
+		intset4.add(11);
+		intset4.add(20);
+		
+		
+		System.out.println("Set 4:"+ intset4.toString(intset4) + '\n');
 
+		//System.out.println("Intersection between Set 1 and 4: ");
+		//System.out.println(intset1.intersect(intset4));
+		
+		System.out.println("Difference between Set 1 and 4: ");
+		//System.out.println(intset1.diff(intset4));
 
 	}
 
